@@ -1,17 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 28
 
 
     defaultConfig {
         applicationId "com.dingtone.testandroidadsdk"
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -26,22 +28,28 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-//    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+//    implementation 'androidx.appcompat:appcompat:1.1.0'
+//    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-//    api 'me.dt.native.ad:library:1.0.0'
+    api 'me.dt.native.ad:library:1.9.52'
+    api(name: 'mopub-sdk-base-debug', ext: 'aar')
+    api(name: 'mopub-sdk-interstitial-debug', ext: 'aar')
+    api(name: 'mopub-sdk-native-static-debug', ext: 'aar')
+    api(name: 'mopub-sdk-rewardedvideo-debug', ext: 'aar')
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 
     // 自己添加
     // Testing-only dependencies
-    androidTestImplementation 'androidx.test:core:1.2.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    androidTestImplementation 'androidx.test:core-ktx:1.2.0'
-    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.1'
+//    androidTestImplementation 'androidx.test:core:1.2.0'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+//    androidTestImplementation 'androidx.test:runner:1.2.0'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+//    androidTestImplementation 'androidx.test:core-ktx:1.2.0'
+//    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.1'
 }

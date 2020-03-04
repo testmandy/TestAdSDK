@@ -4,7 +4,9 @@ package com.dingtone.testandroidadsdk.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 import com.dingtone.testandroidadsdk.R;
 
@@ -15,12 +17,28 @@ import me.dt.nativeadlibary.config.NativeAdLibManager;
 import me.dt.nativeadlibary.util.AdProviderType;
 
 public class MainActivity extends Activity {
+    private final String TAG = MainActivity.class.getSimpleName();
+    private EditText etAdConfig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        etAdConfig = findViewById(R.id.et_ad_config);
+
+
     }
+
+    public void updateAdConfig(View view) {
+        Log.d(TAG, "update ad config");
+        String testAdConfig = etAdConfig.getText().toString();
+        NativeAdLibManager.Builder builder = new NativeAdLibManager.Builder(this.getApplication());
+        builder.setCountryCode("cn")
+                .setNativeAdLibConfig(testAdConfig);
+
+    }
+
     public void onClickAdmob(View view) {
 
         List<Integer> adList = new ArrayList<>();
@@ -76,6 +94,6 @@ public class MainActivity extends Activity {
     }
 
     public void onClickTest(View view) {
-        startActivity(new Intent(this,TestActivity.class));
+        startActivity(new Intent(this, TestActivity.class));
     }
 }

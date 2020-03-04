@@ -23,6 +23,12 @@ android {
         }
     }
 
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
 }
 
 dependencies {
@@ -35,6 +41,7 @@ dependencies {
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     api 'me.dt.native.ad:library:1.9.52'
+
     api(name: 'mopub-sdk-base-debug', ext: 'aar')
     api(name: 'mopub-sdk-interstitial-debug', ext: 'aar')
     api(name: 'mopub-sdk-native-static-debug', ext: 'aar')
@@ -46,10 +53,10 @@ dependencies {
 
     // 自己添加
     // Testing-only dependencies
-//    androidTestImplementation 'androidx.test:core:1.2.0'
-//    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-//    androidTestImplementation 'androidx.test:runner:1.2.0'
-//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-//    androidTestImplementation 'androidx.test:core-ktx:1.2.0'
-//    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.1'
+    androidTestImplementation 'androidx.test:core:1.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test:core-ktx:1.2.0'
+    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.1'
 }
